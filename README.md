@@ -6,7 +6,7 @@ We, at [School of Devops](https://schoolofdevops.com) take pride to introduce yo
 ## Demo Repository (If you just want to launch the app in 5 mins and play with it)
 This project repo  is for builders who want to learn Devops by building projects from scratch. If you are looking for just launching this app in less than 5 minutes and playing around with it, head over to [Craftista Demo](https://github.com/craftista/craftista-demo) instead. 
 
-
+# test
 ## What is Craftista: Celebrating the Art of Origami 
 
 Welcome to Craftista, a unique web platform dedicated to the beautiful and intricate world of origami. Craftista is a place where origami enthusiasts and artists come together to showcase their creations, share their passion, and engage with a like-minded community. Our platform allows users to explore a diverse range of origami art, vote for their favorites, and get inspired by the daily featured origami.
