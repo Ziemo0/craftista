@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voting-deployment
+  namespace: default
+  labels:
+    app: voting
+spec:
+  selector:
+    matchLabels:
+      app: voting
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: voting
+    spec:
+      containers:
+      - name: voting
+        image:  ziemo0/voting:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 500Mi
+        ports:
+        - containerPort:  8080
+          name: voting
+          

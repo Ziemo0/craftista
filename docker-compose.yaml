@@ -1,0 +1,40 @@
+services:
+  catalogue:
+    build: ./catalogue
+    ports:
+      - "5000:5000"
+    depends_on:
+      - catalogue-db
+  catalogue-db:
+    image: postgres:16.2-alpine3.19
+    environment:
+      POSTGRES_USER: devops
+      POSTGRES_PASSWORD: devops
+      POSTGRES_DB: catalogue
+    ports:
+      - "5432:5432"
+    volumes:
+    - catalogue-data:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8000:8080"
+    depends_on:
+      - catalogue-db
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+  recommendation:
+    build: ./recommendation
+    ports:
+      - "8080:8080"
+  voting:
+    build: ./voting
+    depends_on: 
+      - catalogue
+    ports:
+      - "8081:8080"
+volumes:
+  catalogue-data:

@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: catalogue-configmap
+  namespace: default
+data:
+  DB_HOST: "catalogue-db"
+  DB_USER: "postgres"
+  DB_PASSWORD: "password"
+  

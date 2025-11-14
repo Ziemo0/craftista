@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommendation-deployment
+  namespace: default
+  labels:
+    app: recommendation
+spec:
+  selector:
+    matchLabels:
+      app: recommendation
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: recommendation
+    spec:
+      containers:
+      - name: recommendation
+        image:  ziemo0/recommendation:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 500Mi
+        ports:
+        - containerPort:  8080
+          name: recommendation
+          
