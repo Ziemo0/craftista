@@ -1,0 +1,25 @@
+replicaCount: 1
+
+image:
+  repository: adminer
+  tag: latest
+  pullPolicy: IfNotPresent
+
+deployment:
+  name: adminer-deployment
+  namespace: default
+  labels:
+    app: adminer
+
+service:
+  port: 8000
+  targetPort: 8080
+  name: adminer
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limits:
+    cpu: 100m
+    memory: 100Mi

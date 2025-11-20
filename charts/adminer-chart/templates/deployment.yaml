@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminer-deployment
+  namespace: default
+  labels:
+    app: adminer
+spec:
+  selector:
+    matchLabels:
+      app: adminer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: adminer
+    spec:
+      containers:
+      - name: adminer
+        image:  ${{ .Values.image.repository }}:{{ .Values.image.tag }}
+        resources:
+          requests:
+            cpu: ${{ .Values.resources.requests.cpu }}
+            memory: ${{ .Values.resources.requests.memory }}
+          limits:
+            cpu: ${{ .Values.resources.limits.cpu }}
+            memory: ${{ .Values.resources.limits.memory }}
+        ports:
+        - containerPort:  ${{ .Values.service.targetPort }}
+          name: ${{ .Values.service.name }}
